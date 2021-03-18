@@ -161,6 +161,8 @@ function getTransactionType(event, symbol0, symbol1) {
   }
 }
 
+const explorerUrl = process.env.REACT_APP_EXPLORER_URL
+
 // @TODO rework into virtualized list
 function TxnList({ transactions, symbol0Override, symbol1Override, color }) {
   // page state
@@ -304,7 +306,7 @@ function TxnList({ transactions, symbol0Override, symbol1Override, color }) {
         )}
         {!below1080 && (
           <DataText area="account">
-            <Link color={color} external href={'https://etherscan.io/address/' + item.account}>
+            <Link color={color} external href={`${explorerUrl}/address/` + item.account}>
               {item.account && item.account.slice(0, 6) + '...' + item.account.slice(38, 42)}
             </Link>
           </DataText>

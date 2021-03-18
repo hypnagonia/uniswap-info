@@ -165,14 +165,14 @@ function SideNav({ history }) {
           <AutoColumn gap="0.5rem" style={{ marginLeft: '.75rem', marginBottom: '4rem' }}>
             <HeaderText>
               <Link href="https://uniswap.org" target="_blank">
-                Uniswap.org
+                Swoop
               </Link>
             </HeaderText>
-            <HeaderText>
+            {/*<HeaderText>
               <Link href="https://v1.uniswap.info" target="_blank">
                 V1 Analytics
               </Link>
-            </HeaderText>
+            </HeaderText>*/}
             <HeaderText>
               <Link href="https://uniswap.org/docs/v2" target="_blank">
                 Docs

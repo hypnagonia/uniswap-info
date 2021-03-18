@@ -32,6 +32,8 @@ const StyledWarningIcon = styled(AlertTriangle)`
   stroke: red;
 `
 
+const explorerUrl = process.env.REACT_APP_EXPLORER_URL
+
 export default function Warning({ type, show, setShow, address }) {
   const below800 = useMedia('(max-width: 800px)')
 
@@ -48,7 +50,7 @@ export default function Warning({ type, show, setShow, address }) {
     </div>
   ) : (
     <Text fontWeight={500} lineHeight={'145.23%'} mt={'10px'}>
-      Anyone can create and name any ERC20 token on Ethereum, including creating fake versions of existing tokens and
+      Anyone can create and name any ERC20 token, including creating fake versions of existing tokens and
       tokens that claim to represent projects that do not have a token. Similar to Etherscan, this site automatically
       tracks analytics for all ERC20 tokens independent of token integrity. Please do your own research before
       interacting with any ERC20 token.
@@ -72,10 +74,10 @@ export default function Warning({ type, show, setShow, address }) {
                 fontWeight={500}
                 lineHeight={'145.23%'}
                 color={'#2172E5'}
-                href={'https://etherscan.io/address/' + address}
+                href={`${explorerUrl}/address/` + address}
                 target="_blank"
               >
-                View {type === 'token' ? 'token' : 'pair'} contract on Etherscan
+                View {type === 'token' ? 'token' : 'pair'} contract on Explorer
               </Link>
             </Hover>
             <RowBetween style={{ marginTop: '20px' }}>
@@ -92,10 +94,10 @@ export default function Warning({ type, show, setShow, address }) {
                 fontWeight={500}
                 lineHeight={'145.23%'}
                 color={'#2172E5'}
-                href={'https://etherscan.io/address/' + address}
+                href={`${explorerUrl}/address/` + address}
                 target="_blank"
               >
-                View {type === 'token' ? 'token' : 'pair'} contract on Etherscan
+                View {type === 'token' ? 'token' : 'pair'} contract on Explorer
               </Link>
             </Hover>
             <ButtonDark color={'#f82d3a'} style={{ minWidth: '140px' }} onClick={() => setShow(false)}>

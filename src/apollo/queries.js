@@ -1,9 +1,11 @@
 import gql from 'graphql-tag'
 import { FACTORY_ADDRESS, BUNDLE_ID } from '../constants'
 
+
+// todo jenya davekaj/uniswap sort out subgraphes names
 export const SUBGRAPH_HEALTH = gql`
   query health {
-    indexingStatusForCurrentVersion(subgraphName: "uniswap/uniswap-v2") {
+    indexingStatusForCurrentVersion(subgraphName: "davekaj/uniswap") {
       synced
       health
       chains {
@@ -63,14 +65,16 @@ export const GET_BLOCK = gql`
 
 export const GET_BLOCKS = (timestamps) => {
   let queryString = 'query blocks {'
-  queryString += timestamps.map((timestamp) => {
+  queryString += timestamps
+  .map((timestamp) => {
     return `t${timestamp}:blocks(first: 1, orderBy: timestamp, orderDirection: desc, where: { timestamp_gt: ${timestamp}, timestamp_lt: ${
-      timestamp + 600
+      timestamp + 300
     } }) {
       number
     }`
   })
   queryString += '}'
+
   return gql(queryString)
 }
 

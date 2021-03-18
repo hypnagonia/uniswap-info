@@ -149,11 +149,12 @@ export async function splitQuery(query, localClient, vars, list, skipCount = 100
  * @param {Int} timestamp in seconds
  */
 export async function getBlockFromTimestamp(timestamp) {
+
   let result = await blockClient.query({
     query: GET_BLOCK,
     variables: {
       timestampFrom: timestamp,
-      timestampTo: timestamp + 600,
+      timestampTo: timestamp + 300,
     },
     fetchPolicy: 'cache-first',
   })
@@ -302,11 +303,13 @@ export const setThemeColor = (theme) => document.documentElement.style.setProper
 
 export const Big = (number) => new BigNumber(number)
 
+const explorer = process.env.REACT_APP_EXPLORER_URL
+
 export const urls = {
-  showTransaction: (tx) => `https://etherscan.io/tx/${tx}/`,
-  showAddress: (address) => `https://www.etherscan.io/address/${address}/`,
-  showToken: (address) => `https://www.etherscan.io/token/${address}/`,
-  showBlock: (block) => `https://etherscan.io/block/${block}/`,
+  showTransaction: (tx) => `${explorer}/tx/${tx}/`,
+  showAddress: (address) => `${explorer}/address/${address}/`,
+  showToken: (address) => `${explorer}/token/${address}/`,
+  showBlock: (block) => `${explorer}/block/${block}/`,
 }
 
 export const formatTime = (unix) => {

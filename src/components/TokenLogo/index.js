@@ -5,6 +5,12 @@ import EthereumLogo from '../../assets/eth.png'
 
 const BAD_IMAGES = {}
 
+const tokenListUrl = 'https://raw.githubusercontent.com/one-exchange/default-token-list/main/build/exchange-one-default.tokenlist.json'
+let tokensMeta = []
+window.fetch(tokenListUrl)
+    .then(r=>r.json())
+    .then(({tokens}) => tokensMeta = tokens)
+
 const Inline = styled.div`
   display: flex;
   align-items: center;
@@ -75,12 +81,14 @@ export default function TokenLogo({ address, header = false, size = '24px', ...r
     address
   )}/logo.png`
 
+  const swoopPath = (tokensMeta.find((meta) => meta.address.toLowerCase() ===  address.toLowerCase()) || {}).logoURI
+
   return (
     <Inline>
       <Image
         {...rest}
         alt={''}
-        src={path}
+        src={swoopPath || path}
         size={size}
         onError={(event) => {
           BAD_IMAGES[address] = true
