@@ -200,11 +200,14 @@ export default function Provider({children}) {
 async function getBulkPairData(pairList, ethPrice) {
   const [t1, t2, tWeek] = getTimestampsForChanges();
 
-  const rez = await getBlocksFromTimestamps([t1, t2, tWeek]);
-
-  let [{number: b1} = {number: undefined}, {number: b2} = {number: undefined}, {number: bWeek} = {number: undefined}] =
+  // todo remove default
+  let [
+      {number: b1} = {number: undefined},
+    {number: b2} = {number: undefined},
+    {number: bWeek} = {number: undefined}
+    ] =
       await getBlocksFromTimestamps([t1, t2, tWeek]);
-
+  console.log('tWeek', {tWeek})
   try {
     let current = await client.query({
       query: PAIRS_BULK,

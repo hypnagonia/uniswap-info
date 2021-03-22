@@ -154,7 +154,7 @@ export async function getBlockFromTimestamp(timestamp) {
     query: GET_BLOCK,
     variables: {
       timestampFrom: timestamp,
-      timestampTo: timestamp + 300,
+      timestampTo: timestamp + 2100,
     },
     fetchPolicy: 'cache-first',
   })
