@@ -4,7 +4,7 @@ import { HttpLink } from 'apollo-link-http'
 
 export const client = new ApolloClient({
   link: new HttpLink({
-    uri: 'https://graph.hmny.io/subgraphs/name/harmony/swoop'
+    uri: 'https://graph.harmony.one/subgraphs/name/harmony/viper'
   }),
   cache: new InMemoryCache(),
   shouldBatch: true,
@@ -12,7 +12,7 @@ export const client = new ApolloClient({
 
 export const healthClient = new ApolloClient({
   link: new HttpLink({
-    uri: 'https://graph.hmny.io/graphql',
+    uri: 'https://graph.harmony.one/graphql',
   }),
   cache: new InMemoryCache(),
   shouldBatch: true,
@@ -20,7 +20,7 @@ export const healthClient = new ApolloClient({
 
 export const v1Client = new ApolloClient({
   link: new HttpLink({
-    uri: 'https://graph.hmny.io/subgraphs/name/harmony/swoop',
+    uri: 'https://graph.harmony.one/subgraphs/name/harmony/viper',
   }),
   cache: new InMemoryCache(),
   shouldBatch: true,
@@ -36,7 +36,7 @@ export const stakingClient = new ApolloClient({
 
 export const blockClient = new ApolloClient({
   link: new HttpLink({
-    uri: 'https://graph.hmny.io/subgraphs/name/harmony/ethereum-blocks',
+    uri: 'https://graph.harmony.one/subgraphs/name/harmony/blocks',
   }),
   cache: new InMemoryCache(),
 })
