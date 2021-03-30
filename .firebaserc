@@ -1,5 +1,17 @@
 {
+  "targets": {
+    "viper-info": {
+      "hosting": {
+        "viper-info": [
+          "viper-info"
+        ],
+        "swoop-info": [
+          "swoop-info"
+        ]
+      }
+    }
+  },
   "projects": {
-    "default": "swoop-info"
+    "viper-info": "viper-info"
   }
 }
